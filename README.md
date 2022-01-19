@@ -46,7 +46,7 @@ npm run dev
 
 Запуск build, чтобы собрать проект и создать pkg-файлы:
 ```bash
-npm dun build
+npm run build
 ```
 
 ## License
