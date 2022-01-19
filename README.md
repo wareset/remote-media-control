@@ -6,9 +6,9 @@ Web-интерфейс для плеера VLC
 ## Как использовать:
 1. Необходимо установить плеер [VLC](https://www.videolan.org)
 2. Скачать сборку программы для нужной операционной системы:
-   - Для Windows x64: [remote-media-control-win.exe](https://raw.githubusercontent.com.com/wareset/remote-media-control/main/pkg/remote-media-control-win.exe)
-   - Для Linux x64: [remote-media-control-linux](https://raw.githubusercontent.com.com/wareset/remote-media-control/main/pkg/remote-media-control-linux)
-   - Для Mac x64: [remote-media-control-macos](https://raw.githubusercontent.com.com/wareset/remote-media-control/main/pkg/remote-media-control-macos)
+   - Для Windows x64: [remote-media-control-win.exe](https://github.com/wareset/remote-media-control/raw/main/pkg/remote-media-control-win.exe)
+   - Для Linux x64: [remote-media-control-linux](https://github.com/wareset/remote-media-control/raw/main/pkg/remote-media-control-linux)
+   - Для Mac x64: [remote-media-control-macos](https://github.com/wareset/remote-media-control/raw/main/pkg/remote-media-control-macos)
 
 
 Для Mac и Linux, возможно, придется выполнить следующую команду перед запуском:
