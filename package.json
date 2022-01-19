@@ -1,0 +1,63 @@
+{
+  "name": "remote-media-control",
+  "version": "0.0.1",
+  "description": "Web-интерфейс для плеера VLC",
+  "author": "rease <rease@wareset.com>",
+  "homepage": "https://github.com/wareset/remote-media-control#readme",
+  "license": "MIT",
+  "private": true,
+  "bin": "app/index.js",
+  "pkg": {
+    "assets": [
+      "app/assets/**/*"
+    ],
+    "targets": [
+      "node12-macos-x64",
+      "node12-linux-x64",
+      "node12-win-x64"
+    ],
+    "outputPath": "pkg"
+  },
+  "scripts": {
+    "dev": "rollup -c -w & sleep 2 && cd ./app && nodemon --inspect ./index.js --ignore ./rmc.config.json",
+    "build": "rollup -c && sleep 2 && pkg ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wareset/remote-media-control.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wareset/remote-media-control/issues"
+  },
+  "devDependencies": {
+    "@rollup/plugin-babel": "^5.3.0",
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@babel/plugin-transform-block-scoping": "^7.16.0",
+    "@babel/plugin-transform-template-literals": "^7.16.0",
+    "@rollup/plugin-commonjs": "^21.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.1.0",
+    "@rollup/plugin-replace": "^3.0.0",
+    "@rollup/plugin-sucrase": "^4.0.0",
+    "@types/node": "^12.20.0",
+    "@types/mime": "^2.0.0",
+    "@types/ws": "^8.2.0",
+    "rollup": "^2.63.0",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-svelte": "^7.0.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "svelte": "^3.45.0",
+    "svelte-preprocess": "^4.10.0",
+    "ts-node": "^10.4.0",
+    "typescript": "4.x",
+    "nodemon": "^2.0.0",
+    "terser": "^5.10.0",
+    "pkg": "^5.5.0"
+  },
+  "dependencies": {
+    "mime": "^3.0.0",
+    "open": "^8.4.0",
+    "ws": "^8.4.0"
+  }
+}

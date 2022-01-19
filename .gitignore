@@ -1,0 +1,8 @@
+node_modules
+.DS_Store
+*.lock
+*.log
+
+/examples
+/app/rmc.config.json
+/pkg/rmc.config.json
