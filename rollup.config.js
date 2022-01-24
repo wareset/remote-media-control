@@ -14,7 +14,7 @@ import livereload from 'rollup-plugin-livereload'
 const production = !process.env.ROLLUP_WATCH
 
 const terser = {
-  async renderChunk (code) {
+  async renderChunk(code) {
     return await minify(code, { safari10: true })
   }
 }
@@ -80,7 +80,7 @@ export default [
       }),
       production && terser,
       {
-        renderChunk (code) {
+        renderChunk(code) {
           return '/* eslint-disable */\n' + code
         }
       }
@@ -104,7 +104,7 @@ export default [
       commonjs(),
       production && terser,
       {
-        renderChunk (code) {
+        renderChunk(code) {
           return '/* eslint-disable */\n' + code
         }
       }

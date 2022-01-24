@@ -16,10 +16,18 @@ export const wsOnEvent = (ws: WebSocket, event: string, fn: Function): void => {
     // @ts-ignore
     ws[key] = []
     ws.addEventListener(event, (e: any) => {
+      if (event === 'message') {
+        const message = JSON.parse(e.data)
+        // @ts-ignore
+        ws[key].forEach((v) => {
+          v(message.cmd, message.data)
+        })
+      } else {
       // @ts-ignore
-      ws[key].forEach((v) => {
-        v(e)
-      })
+        ws[key].forEach((v) => {
+          v(e)
+        })
+      }
     })
   }
   // @ts-ignore
@@ -38,8 +46,5 @@ export const wsOnClose =
 
 export const wsOnMessage =
   (ws: WebSocket, fn: (cmd: string, data: any) => void): void => {
-    wsOnEvent(ws, 'message', (e: any) => {
-      const message = JSON.parse(e.data)
-      fn(message.cmd, message.data)
-    })
+    wsOnEvent(ws, 'message', fn)
   }

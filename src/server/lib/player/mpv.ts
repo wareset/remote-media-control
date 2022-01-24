@@ -182,12 +182,11 @@ export const createMPV = (
         _get('playlist'),
         _get('pause'),
         _get('loop-playlist'),
-        _get('shuffle'),
         _get('volume'),
         _get('percent-pos'),
         _get('fullscreen')
       ])
-        .then(([_playlist, _pause, _loop, _shuffle, _volume, _seek, _fullscreen]) => {
+        .then(([_playlist, _pause, _loop, _volume, _seek, _fullscreen]) => {
           let id = -1, playing = false
           if (_playlist) {
             for (let i = 0; i < _playlist.length; ++i) {
@@ -203,7 +202,7 @@ export const createMPV = (
             id        : id,
             play      : playing && !_pause,
             loop      : loop = _loop === 'inf',
-            random    : random, // = !!_shuffle,
+            random    : random,
             volume    : volume = +_volume || 0,
             seek      : +_seek || 0,
             fullscreen: !!_fullscreen
@@ -238,15 +237,16 @@ export const createMPV = (
       _run('cycle', 'pause'),
     stop: (): TypePromise =>
       _run('stop'),
-    next : (): TypePromise => _run('playlist-next'),
-    // .then((v) => v || api.loop().then(() => api.next().then(api.loop))),
-    prev : (): TypePromise => _run('playlist-prev'),
-    // .then((v) => v || api.loop().then(() => api.prev().then(api.loop))),
+    next: (): TypePromise => _run('playlist-next')
+      .then((v) => v !== void 0 || api.loop().then(() => api.next().then(api.loop))),
+    prev: (): TypePromise => _run('playlist-prev')
+      .then((v) => v !== void 0 || api.loop().then(() => api.prev().then(api.loop))),
     empty: (): TypePromise =>
       _run('stop'), // playlist-clear
 
     random: (): TypePromise =>
       _run((random = !random) ? 'playlist-shuffle' : 'playlist-unshuffle'),
+
     loop: (): TypePromise =>
       _set('loop-playlist', (loop = !loop) ? 'inf' : 'no'),
 
