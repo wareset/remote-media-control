@@ -22,8 +22,9 @@ const terser = {
 const env = (browser) => replace({
   preventAssignment: true,
   values           : {
-    'process.browser': !!browser,
-    'process.env.DEV': JSON.stringify(!production)
+    'process.browser'     : JSON.stringify(!!browser),
+    'process.env.DEV'     : JSON.stringify(!production),
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
   },
 })
 
