@@ -43,7 +43,7 @@
     "@types/node": "^12.20.0",
     "@types/ws": "^8.2.0",
     "nodemon": "^2.0.0",
-    "pkg": "5.7.0",
+    "pkg": "5.8.0",
     "rollup": "2.75.5",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
